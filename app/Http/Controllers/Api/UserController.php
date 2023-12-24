@@ -59,4 +59,23 @@ class UserController extends Controller
             return response()->json($e);
         }
     }
+
+    public function delete(User $user)
+    {
+        try {
+            $user = auth()->user();
+            
+            $user->delete();
+
+            return response()->json([
+                'status_code' => 200,
+                'status_message' => 'Utilisateur supprimé avec succès',
+                'user' => $user,
+            ]);
+        }
+        catch(Exception $e)
+        {
+            return response()->json($e);
+        }
+    }
 }

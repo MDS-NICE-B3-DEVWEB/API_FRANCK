@@ -50,4 +50,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //Supprimé un post
     Route::delete('posts/delete/{post}', [PostController::class, 'delete']);
+
+    //Supprimé l utilisateur connecter
+    Route::delete('/user/delete', [UserController::class, 'delete']);
 });
