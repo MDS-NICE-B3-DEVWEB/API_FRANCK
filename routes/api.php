@@ -26,7 +26,6 @@ Route::get('posts', [PostController::class, 'index']);
 
 //---Users---//
 
-
 //Crée un utilisateur
 Route::post('/register', [UserController::class, 'register']);
 
@@ -34,13 +33,16 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
 
-//---Auth---//
+//---Protected by login---//
 
 Route::middleware('auth:sanctum')->group(function () {
     //Recupere les infos de l'utilisateur connecté
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+
+    //---Posts---//
 
     //Ajouter un post
     Route::post('posts/create', [PostController::class, 'store']);
@@ -50,6 +52,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //Supprimé un post
     Route::delete('posts/delete/{post}', [PostController::class, 'delete']);
+
+
+    //---Users---//
 
     //Editer un l utilisateur connecter
     Route::put('/user/edit', [UserController::class, 'update']);
