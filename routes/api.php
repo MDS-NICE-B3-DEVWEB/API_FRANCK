@@ -30,9 +30,6 @@ Route::get('posts', [PostController::class, 'index']);
 //Recupere la liste des rubriques
 Route::get('rubriques', [RubriqueController::class, 'index']);
 
-//Crée une rubrique
-Route::post('rubriques/create', [RubriqueController::class, 'store']);
-
 
 //---Users---//
 
