@@ -47,7 +47,7 @@ Personnellement durant le developement de l'application j'ai préferer utiliser 
 ``` app\Models ```
 - Voici ou se trouve les migrations qui permettent la génération dans la base de données : 
 ``` database\migrations ```
-- Voici ou se trouve les routes de l'api qui definit donc les routes de l'api : 
+- Voici ou se trouve les routes de l'api qui definit donc les routes de l'api :
 ``` routes\api.php ```
 
 ### Voici les étapes a suivre pour installer le projet :
