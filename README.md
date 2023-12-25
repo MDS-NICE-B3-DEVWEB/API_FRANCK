@@ -58,7 +58,53 @@ Voici la structure du projet ainsi qu'une brève expliquation des differents dos
 
 3. Créez une base de données MariaDB ou autre type de SGBD SQL avec le nom que vous avez spécifié dans le fichier `.env`.
 
-4. Exécutez l'appication.
+4. Exécutez les migrations.
+
+   ```bash
+      php artisan migrate```
+
+5. Exécutez l'appication.
 
    ```bash
       php artisan serve```
+
+## Routes
+
+Voici les routes disponible qui vous permette de tester vos requetes via l'API
+
+### Utilisateurs
+
+- Crée un utilisateur : 
+``` POST    /register ```
+- Se connecter : 
+``` POST    /login ```
+- Recuperer les informations de l'utilisateur connecté :  
+``` GET     /user ```
+- Modifier les informations de l'utilisateur connecté : 
+``` PUT     /user/edit ```
+- Suprimer le compte de l'utilisateur connecté: 
+``` DELETE  /user/delete ```
+
+### Posts
+
+- Recuperer la liste des posts :  
+``` GET     posts ```
+- Ajouter un post : 
+``` POST    /posts/create ```
+- Editer un post : 
+``` PUT     /posts/edit/{post} ```
+- Suprimer un post :
+``` DELETE  /posts/delete/{post} ```
+
+### Rubriques
+
+- Recuperer la liste des rubriques :  
+``` GET     rubriques ```
+- Ajouter une rubrique : 
+``` POST    /rubriques/create ```
+- Editer une rubrique : 
+``` PUT     /rubriques/edit/{post} ```
+- Suprimer une rubrique :
+``` DELETE  /rubriques/delete/{post} ```
+
+
