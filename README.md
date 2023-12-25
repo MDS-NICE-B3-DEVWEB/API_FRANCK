@@ -1,69 +1,34 @@
 # API_FRANCK
-Api de Franck
+Création d'une API REST
+Informations générales
+Nom du projet : {nom du projet}
+Date du projet : {date du projet}
+Résumé : {résumé du projet}
+Objectifs du TP API REST
+Créer une API en respectant l'architecture REST
+Créer une base de données
+Créer un client web (front-end) pour tester l'API REST (Front-end optionnel)
+Utilisation d'une ORM (Object Relational Mapping) pour la base de données (récommandé)
+Utilisation d'un framework pour l'API REST (récommandé)
+Utilisation de Docker pour l'API REST et la base de données (récommandé)
+Méthodologie d'évaluation
+Afin de réaliser l'évaluation, je vais utiliser les outils suivants :
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Postman pour tester les fonctionnalités de l'API web
+Wireshark pour analyser le trafic réseau
+Docker pour exécuter l'API web et la base de données
+Rappels des normes Respectées
+Format de données : JSON /2pts
+API CRUD : Create, Read, Update, Delete /2pts
+Méthodes HTTP : GET, POST, PUT, DELETE /2pts
+Codes de statut HTTP : 200, 201, 204, 400, 401, 403, 404, 405, 409, 500 (respect de la norme RFC 7807) /2pts
+Norme de nommage des routes (GetUser, PostUser, PutUser, DeleteUser) /2pst
+Authentification : Token JWT ou Baraer Token ou équivalent /pts
+Application Statelessness /2pts
+Horodatage des données : ISO 8601 /2pts
+Documentation de l'API : Swagger ou équivalent ou en md /2pts
+Front et Back indépandant /4pts
+[Bonus] : API containerisée / Pretty URLs / API versioning / Frontend esthétique / Obligé un mot de passe fort / Bloqué les origine inconnue / Hébergé sur un server en HTTPS
+[ATTENTION] : La note peut être divisée par 2 si le code est illisible ou mal structuré ou que le projet n'est pas cohérent
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
