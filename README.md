@@ -35,4 +35,30 @@ Personnellement durant le developement de l'application j'ai préferer utiliser 
 - [Bonus] : API containerisée / Pretty URLs / API versioning / Frontend esthétique / Obligé un mot de passe fort / Bloqué les origine inconnue / Hébergé sur un server en HTTPS
 - [ATTENTION] : La note peut être divisée par 2 si le code est illisible ou mal structuré ou que le projet n'est pas cohérent
 
+## Architecture du Projet
 
+Voici la structure du projet ainsi qu'une brève expliquation des differents dossier et fichier 
+
+1. Clonez ce référentiel sur votre machine locale.
+
+   ```bash
+      git clone https://github.com/MDS-NICE-B3-DEVWEB/API_FRANCK
+    ```
+
+2. Créez un fichier `.env` à la racine du projet et ajoutez les variables suivantes.
+
+   ```bash
+      PORT=<port de votre application>
+      DB_TYPE=<type de votre SGBD mysql,mariadb,postgresql etc...>
+      DB_HOST=<hôte de votre base de données>
+      DB_USER=<utilisateur de votre base de données>
+      DB_PASS=<mot de passe de votre base de données>
+      DB_NAME=<nom de votre base de données>
+    ```
+
+3. Créez une base de données MariaDB ou autre type de SGBD SQL avec le nom que vous avez spécifié dans le fichier `.env`.
+
+4. Exécutez l'appication.
+
+   ```bash
+      php artisan serve```
