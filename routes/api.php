@@ -70,6 +70,9 @@ Route::middleware('auth:sanctum')->group(function () {
     //Editer une rubrique
     Route::put('rubriques/edit/{rubrique}', [RubriqueController::class, 'update']);
 
+    //Supprimé une rubrique
+    Route::delete('rubriques/delete/{rubrique}', [RubriqueController::class, 'delete']);
+
 
     //---Users---//
 

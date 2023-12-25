@@ -94,4 +94,30 @@ class RubriqueController extends Controller
             return response()->json($e);
         }
     }
+
+    public function delete(Rubrique $rubrique) 
+    {
+        try {
+            if ($rubrique->user_id == auth()->user()->id) {
+
+                $rubrique->delete();
+
+                return response()->json([
+                    'status_code' => 200,
+                    'status_message' => 'Rubrique supprimé avec succès',
+                    'data' => $rubrique
+                ]);
+            }
+            else {
+                return response()->json([
+                    'status_code' => 422,
+                    'status_message' => 'Vous n\'avez pas le droit de supprimer cette rubrique',
+                ]);
+            }
+        }
+        catch(Exception $e)
+        {
+            return response()->json($e);
+        }
+    }
 }
