@@ -39,11 +39,16 @@ Personnellement durant le developement de l'application j'ai préferer utiliser 
 
 ### Voici la structure du projet ainsi qu'une brève expliquation des differents dossier et fichier :
 
-Voici ou se trouve les controllers qui permet de traiter les requetes suivant la routes choisi : app\Http\Controllers\Api
-Voici ou se trouve les requêtes qui definissent les regles a suivre pour les éléments : app\Http\Requests
-Voici ou se trouve les models qui permet de crée les differents éléments : app\Models
-Voici ou se trouve les migrations qui permettent la génération dans la base de données : database\migrations
-Voici ou se trouve les routes de l'api qui definit donc les routes de l'api : routes\api.php
+Voici ou se trouve les controllers qui permet de traiter les requetes suivant la routes choisi : 
+``` app\Http\Controllers\Api ```
+Voici ou se trouve les requêtes qui definissent les regles a suivre pour les éléments : 
+``` app\Http\Requests ```
+Voici ou se trouve les models qui permet de crée les differents éléments : 
+``` app\Models ```
+Voici ou se trouve les migrations qui permettent la génération dans la base de données : 
+``` database\migrations ```
+Voici ou se trouve les routes de l'api qui definit donc les routes de l'api : 
+``` routes\api.php ```
 
 ### Voici les étapes a suivre pour installer le projet :
 
