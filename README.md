@@ -5,6 +5,8 @@
 - Date du projet : 20/12/2023
 - Résumé : Création d'une API REST en Laravel
 
+VERSION SERVER , SI CETTE VERSION NE FONCTIONNE PAS VEUILLEZ ESSAYER EN LOCAL AVEC LA VERSION DE LA BRANCH MAIN
+
 ## Objectifs du TP API REST
 - Créer une API en respectant l'architecture REST
 - Créer une base de données
