@@ -13,7 +13,7 @@ class RubriqueController extends Controller
 {
     public function index(Request $request)
     {
-        /*try {
+        try {
             $query = Rubrique::query();
             $perPage = 10;
             $page = $request->input('page', 1);
@@ -41,7 +41,7 @@ class RubriqueController extends Controller
         catch(Exception $e)
         {
             return response()->json($e);
-        }*/
+        }
     }
 
     public function store(CreateRubriqueRequest $request)

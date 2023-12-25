@@ -43,6 +43,7 @@ Route::post('/login', [UserController::class, 'login']);
 //---Protected by login---//
 
 Route::middleware('auth:sanctum')->group(function () {
+    
     //Recupere les infos de l'utilisateur connecté
     Route::get('/user', function (Request $request) {
         return $request->user();
