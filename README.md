@@ -26,8 +26,8 @@ Personnellement durant le developement de l'application j'ai préferer utiliser 
 - API CRUD : Create, Read, Update, Delete /2pts
 - Méthodes HTTP : GET, POST, PUT, DELETE /2pts
 - Codes de statut HTTP : 200, 201, 204, 400, 401, 403, 404, 405, 409, 500 (respect de la norme RFC 7807) /2pts
-- Norme de nommage des routes (GetUser, PostUser, PutUser, DeleteUser) /2pst
-- Authentification : Token JWT ou Baraer Token ou équivalent /pts 
+- Norme de nommage des routes (GetUser, PostUser, PutUser, DeleteUser) /2pts
+- Authentification : Token JWT ou Baraer Token ou équivalent 2/pts 
 - Application Statelessness /2pts
 - Horodatage des données : ISO 8601 /2pts
 - Documentation de l'API : Swagger ou équivalent ou en md /2pts
@@ -74,6 +74,8 @@ Voici les routes disponible qui vous permette de tester vos requetes via l'API
 
 ### Utilisateurs
 
+Permet la gestion des utilisateurs
+
 - Crée un utilisateur : 
 ``` POST    /register ```
 - Se connecter : 
@@ -87,24 +89,28 @@ Voici les routes disponible qui vous permette de tester vos requetes via l'API
 
 ### Posts
 
+Permet la gestion des posts
+
 - Recuperer la liste des posts :  
 ``` GET     posts ```
 - Ajouter un post : 
-``` POST    /posts/create ```
+``` POST    posts/create ```
 - Editer un post : 
-``` PUT     /posts/edit/{post} ```
+``` PUT     posts/edit/{post} ```
 - Suprimer un post :
-``` DELETE  /posts/delete/{post} ```
+``` DELETE  posts/delete/{post} ```
 
 ### Rubriques
+
+Permet la gestion des rubriques
 
 - Recuperer la liste des rubriques :  
 ``` GET     rubriques ```
 - Ajouter une rubrique : 
-``` POST    /rubriques/create ```
+``` POST    rubriques/create ```
 - Editer une rubrique : 
-``` PUT     /rubriques/edit/{post} ```
+``` PUT     rubriques/edit/{post} ```
 - Suprimer une rubrique :
-``` DELETE  /rubriques/delete/{post} ```
+``` DELETE  rubriques/delete/{post} ```
 
 
