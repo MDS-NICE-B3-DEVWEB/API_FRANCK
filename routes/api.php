@@ -67,6 +67,9 @@ Route::middleware('auth:sanctum')->group(function () {
     //Crée une rubrique
     Route::post('rubriques/create', [RubriqueController::class, 'store']);
 
+    //Editer une rubrique
+    Route::put('rubriques/edit/{rubrique}', [RubriqueController::class, 'update']);
+
 
     //---Users---//
 

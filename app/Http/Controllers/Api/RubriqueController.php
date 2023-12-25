@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Rubrique;
 use App\Http\Requests\CreateRubriqueRequest;
+use App\Http\Requests\EditRubriqueRequest;
 use Exception;
 
 class RubriqueController extends Controller
@@ -62,6 +63,35 @@ class RubriqueController extends Controller
         }
         catch(Execption $e){
             return response() -> json($e);
+        }
+    }
+
+    public function update(EditRubriqueRequest $request, Rubrique $rubrique)
+    {
+        try {
+            $rubrique->titre = $request->titre;
+            $rubrique->image = $request->image;
+            $rubrique->theme = $request->theme;
+            $rubrique->description = $request->description;
+            if ($rubrique->user_id == auth()->user()->id) {
+                $rubrique->save();
+
+                return response()->json([
+                    'status_code' => 200,
+                    'status_message' => 'Article modifié avec succès',
+                    'data' => $rubrique
+                ]);
+            }
+            else {
+                return response()->json([
+                    'status_code' => 422,
+                    'status_message' => 'Vous n\'avez pas le droit de modifier cet article',
+                ]);
+            }
+        }
+        catch(Exception $e)
+        {
+            return response()->json($e);
         }
     }
 }
