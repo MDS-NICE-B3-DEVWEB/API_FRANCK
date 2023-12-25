@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\RubriqueController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,15 @@ use Illuminate\Support\Facades\Route;
 
 //Recupere la liste des posts
 Route::get('posts', [PostController::class, 'index']);
+
+
+//---Rubrique---//
+
+//Recupere la liste des rubriques
+Route::get('rubriques', [RubriqueController::class, 'index']);
+
+//Crée une rubrique
+Route::post('rubriques/create', [RubriqueController::class, 'store']);
 
 
 //---Users---//
@@ -52,6 +62,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //Supprimé un post
     Route::delete('posts/delete/{post}', [PostController::class, 'delete']);
+
+
+    //---Rubrique---//
+
+
+    //Crée une rubrique
+    Route::post('rubriques/create', [RubriqueController::class, 'store']);
 
 
     //---Users---//
