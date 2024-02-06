@@ -5,7 +5,8 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\RubriqueController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,49 +38,57 @@ Route::get('rubriques', [RubriqueController::class, 'index']);
 Route::post('/register', [UserController::class, 'register']);
 
 //Connecter un utilisateur
-Route::post('/login', [UserController::class, 'login']);
+Route::middleware('throttle:5,1')->post('/login', [UserController::class, 'login']);
 
 
 //---Protected by login---//
 
 Route::middleware('auth:sanctum')->group(function () {
-    
-    //Recupere les infos de l'utilisateur connecté
-    Route::get('/user', function (Request $request) {
-        return $request->user();
+
+    // Rate limiting configuration
+    RateLimiter::for('api', function ($request) {
+        return Limit::perMinute(10)->by($request->ip());
     });
 
+    // Apply rate limiting middleware
+    Route::middleware('throttle:api')->group(function () {
 
-    //---Posts---//
+        //Recupere les infos de l'utilisateur connecté
+        Route::get('/user', function (Request $request) {
+            return $request->user();
+        });
 
-    //Ajouter un post
-    Route::post('posts/create', [PostController::class, 'store']);
+        //---Posts---//
 
-    //Editer un post
-    Route::put('posts/edit/{post}', [PostController::class, 'update']);
+        //Ajouter un post
+        Route::post('posts/create', [PostController::class, 'store']);
 
-    //Supprimé un post
-    Route::delete('posts/delete/{post}', [PostController::class, 'delete']);
+        //Editer un post
+        Route::put('posts/edit/{post}', [PostController::class, 'update']);
 
-
-    //---Rubrique---//
-
-
-    //Crée une rubrique
-    Route::post('rubriques/create', [RubriqueController::class, 'store']);
-
-    //Editer une rubrique
-    Route::put('rubriques/edit/{rubrique}', [RubriqueController::class, 'update']);
-
-    //Supprimé une rubrique
-    Route::delete('rubriques/delete/{rubrique}', [RubriqueController::class, 'delete']);
+        //Supprimé un post
+        Route::delete('posts/delete/{post}', [PostController::class, 'delete']);
 
 
-    //---Users---//
+        //---Rubrique---//
 
-    //Editer un l utilisateur connecter
-    Route::put('/user/edit', [UserController::class, 'update']);
 
-    //Supprimé l utilisateur connecter
-    Route::delete('/user/delete', [UserController::class, 'delete']);
+        //Crée une rubrique
+        Route::post('rubriques/create', [RubriqueController::class, 'store']);
+
+        //Editer une rubrique
+        Route::put('rubriques/edit/{rubrique}', [RubriqueController::class, 'update']);
+
+        //Supprimé une rubrique
+        Route::delete('rubriques/delete/{rubrique}', [RubriqueController::class, 'delete']);
+
+
+        //---Users---//
+
+        //Editer un l utilisateur connecter
+        Route::put('/user/edit', [UserController::class, 'update']);
+
+        //Supprimé l utilisateur connecter
+        Route::delete('/user/delete', [UserController::class, 'delete']);
+    });
 });

@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -27,4 +28,13 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+{
+    if ($exception instanceof TooManyRequestsHttpException) {
+        return response()->json(['error' => 'Vous avez effectué trop de requêtes en peu de temps. Veuillez réessayer plus tard.'], 429);
+    }
+
+    return parent::render($request, $exception);
+}
 }
