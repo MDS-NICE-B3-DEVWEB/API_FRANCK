@@ -25,6 +25,7 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'titre' => 'required',
+            //rajouter description
         ];
     }
 
@@ -42,6 +43,7 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'titre.required' => 'Le titre est obligatoire',
+            //rajouter description
         ];
     }
 }
