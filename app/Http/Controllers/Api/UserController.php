@@ -55,7 +55,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         try {
-            if (auth()->attempt($request->only(['email', 'password']))) 
+            if (auth()->attempt($request->only(['name', 'password']))) 
             {
                 $user = auth()->user();
                 $token = $user->createToken('auth_token')->plainTextToken;
@@ -71,7 +71,6 @@ class UserController extends Controller
                 return response()->json([
                     'status_code' => 403,
                     'status_message' => 'Information non valide',
-                    //'user' => $user,
                 ]);
             }
         }
