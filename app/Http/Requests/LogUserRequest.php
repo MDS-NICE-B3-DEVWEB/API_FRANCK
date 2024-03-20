@@ -24,7 +24,7 @@ class LogUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|exists:users,email',
+            'username' => 'required|string',
             'password' => 'required',
         ];
     }
@@ -43,9 +43,7 @@ class LogUserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => 'L email est obligatoire',
-            'email.email' => 'L email doit être une adresse mail valide',
-            'email.exists' => 'Cette adresse mail n existe pas',
+            'username.required' => 'Le nom est obligatoire',
             'password.required' => 'Le mot de passe est obligatoire',
         ];
     }

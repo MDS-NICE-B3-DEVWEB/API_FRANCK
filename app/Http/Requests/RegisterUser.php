@@ -24,7 +24,7 @@ class RegisterUser extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'username' => 'required|string',
             'email' => 'required|unique:users,email',
             'password' => 'required',
         ];
@@ -44,7 +44,7 @@ class RegisterUser extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Le nom est obligatoire',
+            'username.required' => 'Le nom est obligatoire',
             'email.required' => 'L email est obligatoire',
             'email.unique' => 'Cette adresse mail est déjà utilisé',
             'password.required' => 'Le mot de passe est obligatoire',

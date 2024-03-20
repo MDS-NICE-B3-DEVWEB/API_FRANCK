@@ -24,7 +24,7 @@ class EditUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
+            'username' => 'required|string',
             'email' => 'required',
             'password' => 'required',
         ];
@@ -43,7 +43,7 @@ class EditUserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Le nom est obligatoire',
+            'username.required' => 'Le nom est obligatoire',
             'email.required' => 'L email est obligatoire',
             'password.required' => 'Le mot de passe est obligatoire',
         ];

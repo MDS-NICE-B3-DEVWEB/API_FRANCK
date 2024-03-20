@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         try {
             $user = new User();
-            $user->name = $request->name;
+            $user->username = $request->username;
             $user->email = $request->email;
             
             $password = $request->password;
@@ -55,7 +55,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         try {
-            if (auth()->attempt($request->only(['name', 'password']))) 
+            if (auth()->attempt($request->only(['username', 'password']))) 
             {
                 $user = auth()->user();
                 $token = $user->createToken('auth_token')->plainTextToken;
@@ -84,7 +84,7 @@ class UserController extends Controller
     {
         try {
             $user = auth()->user();
-            $user->name = $request->name;
+            $user->username = $request->username;
             $user->email = $request->email;
             $user->password = $request->password;
             $user->save();
