@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Agency;
 use Exception;
 use App\Http\Requests\CreateAgencyRequest;
+use App\Http\Requests\EditAgencyRequest;
 
 class AgencyController extends Controller
 {
@@ -60,6 +61,45 @@ class AgencyController extends Controller
         }
         catch(Execption $e){
             return response() -> json($e);
+        }
+    }
+
+    public function update(EditAgencyRequest $request, Agency $agency)
+    {
+        try {
+            $agency->name = $request->name;
+            $agency->address = $request->address;
+            $agency->status = $request->status;
+
+            $agency->save();
+
+            return response()->json([
+                'status_code' => 200,
+                'status_message' => 'Agence modifié avec succès',
+                'data' => $agency
+            ]);
+        
+        }
+        catch(Exception $e)
+        {
+            return response()->json($e);
+        }
+    }
+
+    public function delete(Agency $agency) 
+    {
+        try {
+            $agency->delete();
+
+            return response()->json([
+                'status_code' => 200,
+                'status_message' => 'Agence supprimé avec succès',
+                'data' => $agency
+            ]);
+        }
+        catch(Exception $e)
+        {
+            return response()->json($e);
         }
     }
 }

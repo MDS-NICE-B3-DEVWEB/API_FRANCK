@@ -32,6 +32,12 @@ Route::get('agences', [AgencyController::class, 'index']);
 //Crée une agence
 Route::post('agences/create', [AgencyController::class, 'store']);
 
+//Editer un agence
+Route::put('agences/edit/{agency}', [AgencyController::class, 'update']);
+
+//Supprimé un agence
+Route::delete('agences/delete/{agency}', [AgencyController::class, 'delete']);
+
 //---Agent---//
 
 //Recupere la liste des agents
