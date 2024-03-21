@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Agency;
 use Exception;
+use App\Http\Requests\CreateAgencyRequest;
 
 class AgencyController extends Controller
 {
@@ -39,6 +40,26 @@ class AgencyController extends Controller
         catch(Exception $e)
         {
             return response()->json($e);
+        }
+    }
+
+    public function store(CreateAgencyRequest $request)
+    {
+        try {
+            $agence = new Agency();
+            $agence->name = $request->name;
+            $agence->address = $request->address;
+            $agence->status = '1';
+            $agence->save();
+
+            return response()->json([
+                'status_code' => 200,
+                'status_message' => 'Agence créé avec succès',
+                'data' => $agence
+            ]);
+        }
+        catch(Execption $e){
+            return response() -> json($e);
         }
     }
 }

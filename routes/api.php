@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\RateLimiter;
 //Recupere la liste des agences
 Route::get('agences', [AgencyController::class, 'index']);
 
+//Crée une agence
+Route::post('agences/create', [AgencyController::class, 'store']);
+
 //---Agent---//
 
 //Recupere la liste des agents
