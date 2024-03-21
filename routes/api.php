@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\RubriqueController;
 use App\Http\Controllers\Api\AgencyController;
 use App\Http\Controllers\Api\AgentController;
 use App\Http\Controllers\Api\VehicleController;
+use App\Http\Controllers\Api\FDRController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -32,6 +33,11 @@ Route::get('agences', [AgencyController::class, 'index']);
 
 //Recupere la liste des agents
 Route::get('agents', [AgentController::class, 'index']);
+
+//---FDR---//
+
+//Recupere la liste des FDR
+Route::get('fdr', [FDRController::class, 'index']);
 
 //---Vehicle---//
 

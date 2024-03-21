@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger("id_vehicle");
             $table->unsignedBigInteger("id_agent");
             $table->integer("tonnage");
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });
     }
