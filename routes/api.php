@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\RateLimiter;
 */
 
 //Crée un lien qui permet aux clients d'utilisé les routes de l'api
+//mettre les routes qui doivent etre proteger par un login dans le middleware auth:sanctum notamment les routes admins
+//finir les routes pour les fdr (create update delete)
 
 //---Agences---//
 
