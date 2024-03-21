@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\RubriqueController;
+use App\Http\Controllers\Api\AgencyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\RateLimiter;
 */
 
 //Crée un lien qui permet aux clients d'utilisé les routes de l'api
+
+//Recupere la liste des agences
+Route::get('agences', [AgencyController::class, 'index']);
 
 //---Posts---//
 
