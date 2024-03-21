@@ -43,6 +43,15 @@ Route::delete('agences/delete/{agency}', [AgencyController::class, 'delete']);
 //Recupere la liste des agents
 Route::get('agents', [AgentController::class, 'index']);
 
+//Crée un agent
+Route::post('agents/create', [AgentController::class, 'store']);
+
+//Editer un agent
+Route::put('agents/edit/{agent}', [AgentController::class, 'update']);
+
+//Supprimé un agent
+Route::delete('agents/delete/{agent}', [AgentController::class, 'delete']);
+
 //---FDR---//
 
 //Recupere la liste des FDR
