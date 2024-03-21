@@ -26,7 +26,6 @@ class CreateVehicleRequest extends FormRequest
         return [
             'name' => 'required',
             'registration' => 'required',
-            'status' => 'required',
         ];
     }
 
@@ -45,7 +44,6 @@ class CreateVehicleRequest extends FormRequest
         return [
             'name.required' => 'Le nom du vehicule est obligatoire',
             'registration.required' => 'L immatriculation du vehicule est obligatoire',
-            'status.required' => 'Le status du vehicule est obligatoire',
         ];
     }
 }
