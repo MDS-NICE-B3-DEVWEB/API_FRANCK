@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('agent', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->string("firstname");
             $table->string("surname");
             $table->boolean("status");
             $table->timestamps();
