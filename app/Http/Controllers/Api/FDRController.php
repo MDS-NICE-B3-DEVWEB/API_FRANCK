@@ -28,7 +28,7 @@ class FDRController extends Controller
 
             return response()->json([
                 'status_code' => 200,
-                'status_message' => 'Les agences ont été récupérés avec succès',
+                'status_message' => 'Les fdr ont été récupérés avec succès',
                 'current_page' => $page,
                 'last_page' => ceil($total / $perPage),
                 'items' => $results,
