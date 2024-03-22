@@ -61,17 +61,17 @@ Route::get('fdr', [FDRController::class, 'index']);
 
 //---Vehicle---//
 
-//Recupere la liste des vehicles
-Route::get('vehicles', [VehicleController::class, 'index']);
+//Recupere la liste des vehicules
+Route::get('vehicules', [VehicleController::class, 'index']);
 
 //Crée un vehicule
-Route::post('vehicles/create', [VehicleController::class, 'store']);
+Route::post('vehicules/create', [VehicleController::class, 'store']);
 
 //Editer un vehicule
-Route::put('vehicles/edit/{vehicle}', [VehicleController::class, 'update']);
+Route::put('vehicules/edit/{vehicle}', [VehicleController::class, 'update']);
 
 //Supprimé un vehicule
-Route::delete('vehicles/delete/{vehicle}', [VehicleController::class, 'delete']);
+Route::delete('vehicules/delete/{vehicle}', [VehicleController::class, 'delete']);
 
 //---Posts---//
 
