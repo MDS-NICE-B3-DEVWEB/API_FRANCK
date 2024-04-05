@@ -28,9 +28,6 @@ use Illuminate\Support\Facades\RateLimiter;
 
 //---Agences---//
 
-//Recupere la liste des agences
-Route::get('agences', [AgencyController::class, 'index']);
-
 //Crée une agence
 Route::post('agences/create', [AgencyController::class, 'store']);
 
@@ -41,9 +38,6 @@ Route::put('agences/edit/{agency}', [AgencyController::class, 'update']);
 Route::delete('agences/delete/{agency}', [AgencyController::class, 'delete']);
 
 //---Agent---//
-
-//Recupere la liste des agents
-Route::get('agents', [AgentController::class, 'index']);
 
 //Crée un agent
 Route::post('agents/create', [AgentController::class, 'store']);
@@ -56,13 +50,7 @@ Route::delete('agents/delete/{agent}', [AgentController::class, 'delete']);
 
 //---FDR---//
 
-//Recupere la liste des FDR
-Route::get('fdr', [FDRController::class, 'index']);
-
 //---Vehicle---//
-
-//Recupere la liste des vehicules
-Route::get('vehicules', [VehicleController::class, 'index']);
 
 //Crée un vehicule
 Route::post('vehicules/create', [VehicleController::class, 'store']);
@@ -143,5 +131,25 @@ Route::middleware('auth:sanctum')->group(function () {
 
         //Supprimé l utilisateur connecter
         Route::delete('/user/delete', [UserController::class, 'delete']);
+
+        //---Agent---//
+
+        //Recupere la liste des agents
+        Route::get('agents', [AgentController::class, 'index']);
+
+        //---Vehicle---//
+
+        //Recupere la liste des vehicules
+        Route::get('vehicules', [VehicleController::class, 'index']);
+
+        //---FDR---//
+
+        //Recupere la liste des FDR
+        Route::get('fdr', [FDRController::class, 'index']);
+
+        //---Agences---//
+
+        //Recupere la liste des agences
+        Route::get('agences', [AgencyController::class, 'index']);
     });
 });
