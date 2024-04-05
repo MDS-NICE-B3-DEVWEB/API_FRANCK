@@ -34,6 +34,7 @@ class EditUserRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             'success' => false,
+            'status_code' => 422,
             'error' => true,
             'message' => 'Erreur de validation',
             'errorsList' => $validator->errors()

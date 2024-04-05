@@ -87,18 +87,31 @@ class UserController extends Controller
             $user->username = $request->username;
             $user->email = $request->email;
             $user->password = $request->password;
+
+            $password = $request->password;
+            $minPasswordLength = 12; // Minimum required number of characters for the password
+            
+            if (strlen($password) < $minPasswordLength) {
+                return response()->json([
+                    'status_code' => 422,
+                    'status_message' => 'Le mot de passe doit contenir au moins ' . $minPasswordLength . ' caractères.',
+                ]);
+            }
+            
+            $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/';
+            if (!preg_match($pattern, $password)) {
+                return response()->json([
+                    'status_code' => 422,
+                    'status_message' => 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial.',
+                ]);
+            }
+
             $user->save();
 
             return response()->json([
                 'status_code' => 200,
                 'status_message' => 'Utilisateur modifié avec succès',
                 'data' => $user
-            ]);
-            
-            
-            return response()->json([
-                'status_code' => 422,
-                'status_message' => 'Vous n\'avez pas le droit de modifier cet utilisateur',
             ]);
         }
         catch(Exception $e)
