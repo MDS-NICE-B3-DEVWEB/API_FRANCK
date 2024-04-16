@@ -88,7 +88,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Rate limiting configuration
     RateLimiter::for('api', function ($request) {
-        return Limit::perMinute(10)->by($request->ip());
+        return Limit::perMinute(50)->by($request->ip());
     });
 
     // Apply rate limiting middleware
