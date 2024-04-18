@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,6 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create a test user
+        \App\Models\User::create([
+            'username' => 'test',
+            'email' => 'test@gmail.com',
+            'password' => Hash::make('Azertyuiop9!'),
+            'remember_token' => Str::random(10),
+        ]);
+
         \App\Models\User::factory(3)->create();
 
         \App\Models\Agency::factory(3)->create();
