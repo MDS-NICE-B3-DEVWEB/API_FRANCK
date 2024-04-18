@@ -16,11 +16,11 @@ class VehicleFactory extends Factory
      */
     public function definition(): array
     {
-        $carNames = ['1000','L900','5962','2658','R965','26','569','75'];
+        $carNames = '[A-Z]{1}[0-9]{4}';
         $registration = '[A-Z]{2}-[0-9]{2}-[A-Z]{2}-[0-9]{4}';
 
         return [
-            'name' => fake()->randomElement($carNames),
+            'name' => fake()->regexify($carNames),
             'registration' => fake()->regexify($registration),
             'status' => fake()->randomElement(['1', '0']),
         ];

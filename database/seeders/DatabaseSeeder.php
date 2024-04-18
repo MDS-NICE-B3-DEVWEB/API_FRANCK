@@ -22,15 +22,15 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        \App\Models\User::factory(3)->create();
+        \App\Models\User::factory(2)->create();
 
-        \App\Models\Agency::factory(3)->create();
+        \App\Models\Agency::factory(5)->create();
 
-        \App\Models\Agent::factory(3)->create();
+        \App\Models\Agent::factory(10)->create();
 
-        \App\Models\Vehicle::factory(3)->create();
+        \App\Models\Vehicle::factory(10)->create();
 
-        \App\Models\FDR::factory(3)->create();
+        \App\Models\FDR::factory(5)->create();
 
     }
 }
