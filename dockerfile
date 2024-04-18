@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y \
     pdo \
     pdo_mysql \
     pgsql \
-    zip 
-
+    zip \
+    && useradd -u 1000 -d /app Franck
 
 COPY . /app
 
@@ -24,16 +24,15 @@ WORKDIR /app
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer 
 
-ENV COMPOSER_ALLOW_SUPERUSER=1
+# ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # RUN  composer dump autoload
 
 RUN composer global require laravel/installer
 
-RUN composer install 
-
 EXPOSE 8000
 
 RUN php artisan key:generate
 
-CMD php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000
+CMD composer install && php artisan migrate:fresh && php artisan seed && php artisan serve \
+    --host=0.0.0.0 --port=8000
